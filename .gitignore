@@ -1,0 +1,7 @@
+BuyersApp/BuyersApp/obj/
+packages/
+BuyersApp/BuyersApp/bin/
+*.pdb
+*.dll
+*.user
+*.suo
