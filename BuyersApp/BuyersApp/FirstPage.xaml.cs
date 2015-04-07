@@ -16,14 +16,18 @@ using System.Windows.Shapes;
 namespace BuyersApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FirstPage.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class FirstPage : Page
     {
-        public MainWindow()
+        public FirstPage()
         {
             InitializeComponent();
-            Navigate(new FirstPage());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
