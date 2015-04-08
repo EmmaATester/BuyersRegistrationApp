@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,11 +47,16 @@ namespace BuyersApp
                 // ... No need to display the time.
                 this.Title = date.Value.ToShortDateString();
             }
+            int index = 0;
+            foreach (var item in YearComboBox.Items.Cast<int>())
+            {
+                if (item.Equals(2015))
+                {
+                    index = YearComboBox.Items.IndexOf(item);
+                }
+            }
+            YearComboBox.SelectedIndex = index;
 
-            var selectedDateYear = new ComboBoxItem();
-            selectedDateYear.Content = date.Value.Year;
-            YearComboBox.Items.Add(selectedDateYear);
-            YearComboBox.SelectedIndex = 0;
 
             //       DayComboBox.SelectedValue = date.Value.Day;
             //   MonthComboBox.SelectedValue = date.Value.Month;
