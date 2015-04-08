@@ -88,12 +88,14 @@
             <Label HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Row="1">
                 <TextBlock TextDecorations="Underline"><Run Text="Year"/></TextBlock>
             </Label>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+            <ComboBox ItemsSource ="{Binding Path=Years}" Name="YearComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
             <Label Content="month" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"/>
+            <ComboBox Name="MonthComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1"/>
 
             <Label Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"/>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1"/>
+            <ComboBox Name="DayComboBox"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1"/>
+            <DatePicker Grid.Row="4" Grid.Column="1" SelectedDateChanged="DatePicker_OnSelectedDateChanged"/>
+            
         </Grid>
     </Grid>
 </Page>
