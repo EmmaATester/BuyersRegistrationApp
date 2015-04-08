@@ -50,7 +50,7 @@ namespace BuyersApp
             int index = 0;
             foreach (var item in YearComboBox.Items.Cast<int>())
             {
-                if (item.Equals(2015))
+                if (item.Equals(date.Value.Year))
                 {
                     index = YearComboBox.Items.IndexOf(item);
                 }
