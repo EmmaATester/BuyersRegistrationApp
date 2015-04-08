@@ -8,17 +8,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="FirstPage">
+    <Page.Resources>
+        <Style TargetType="{x:Type xctk:WatermarkTextBox}">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="3" />
+        </Style>
 
+    </Page.Resources>
     <Grid Margin="15,15,15,15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Row="0">
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
             <TextBlock TextDecorations="Underline">Register your new product here</TextBlock>
         </Label>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Stretch" Orientation="Vertical" Grid.Row="1">
@@ -42,7 +49,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Row="0">
+                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
                     <TextBlock TextDecorations="Underline">Personal details</TextBlock>
                 </Label>
 
@@ -56,26 +63,26 @@
                     <ComboBoxItem>Lord</ComboBoxItem>
                 </ComboBox>
                 <Label Content="First name" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
-                <xctk:WatermarkTextBox Grid.Row="1" Margin="10, 0, 0, 0" Width="100" Grid.Column="2" Watermark="Enter First Name" />
+                <xctk:WatermarkTextBox Grid.Row="1" Width="100" Grid.Column="2" Watermark="Enter First Name" />
 
                 <Label Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="2" Margin="10, 0, 0, 0" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame"></xctk:WatermarkTextBox>
 
                 <Label Content="Address 1" Grid.Row="3" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="3" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Address"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Address"></xctk:WatermarkTextBox>
 
                 <Label Content="Town" Grid.Row="4" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="4" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Town"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="4" Width="100" Grid.Column="1" Watermark="Town"></xctk:WatermarkTextBox>
 
                 <xctk:WatermarkTextBox Grid.Row="5" Width="100" Grid.Column="0" Watermark="County"></xctk:WatermarkTextBox>
                 <Label Content="County" Grid.Row="5" Grid.Column="1"/>
                 <Label Content="Post code" Grid.Row="5" Grid.Column="2"/>
-                <TextBox Grid.Row="5" Width="50" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,10,0"></TextBox>
+                <TextBox Grid.Row="5" Width="50" Grid.Column="3" HorizontalAlignment="Right"></TextBox>
                 <TextBox Grid.Row="5" Width="50" Grid.Column="4"></TextBox>
 
 
                 <Label Content="Country" Grid.Row="6" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="6" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Country"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="6" Width="100" Grid.Column="1" Watermark="Country"></xctk:WatermarkTextBox>
             </Grid>
             <Grid>
 
@@ -91,15 +98,15 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Row="0">
+                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
                     <TextBlock TextDecorations="Underline">Contact details</TextBlock>
                 </Label>
 
                 <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="1" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Email"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="1" Width="100" Grid.Column="1" Watermark="Email"></xctk:WatermarkTextBox>
 
                 <Label Content="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="2" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Phone"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.Column="1" Watermark="Phone"></xctk:WatermarkTextBox>
 
                 <Label Content="Mobile" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"/>
                 <!--<xctk:WatermarkTextBox Grid.Row="3" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>-->
@@ -107,22 +114,9 @@
         HorizontalAlignment="Center"
         Text="{Binding SelectedCountry, UpdateSourceTrigger=PropertyChanged}" 
         wpfTextBoxAutoComplete:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding Countries}" 
-                         Grid.Row="3" Margin="10, 0, 0, 0" Grid.Column="1"
+                         Grid.Row="3" Grid.Column="1"
     />
             </Grid>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Width="80" Height="30">Back</Button>
-                <Button Grid.Column="1" Width="80" Height="30">Cancel !</Button>
-                <Button Grid.Column="2" Width="80" Height="30" Click="Button_Click">Next ></Button>
-            </Grid>
-
         </StackPanel>
     </Grid>
 </Page>

@@ -1,4 +1,4 @@
-﻿<NavigationWindow x:Class="BuyersApp.MainWindow"
+﻿<Window x:Class="BuyersApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
@@ -7,8 +7,7 @@
         Title="Buyers's Registration form" Height="600" Width="525">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Margin" Value="0,0,0,10" />
-            <Setter Property="Height" Value="30" />
+            <Setter Property="Margin" Value="3" />
         </Style>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Margin" Value="0,0,0,10" />
@@ -17,5 +16,17 @@
 <Window.DataContext>
     <buyersApp:MainWindowViewModel></buyersApp:MainWindowViewModel>
 </Window.DataContext>
-    
-</NavigationWindow>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Frame Name="PageFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Name="BackButton" Margin="3,3,3,0" Height="22" VerticalAlignment="Top" Click="BackButton_Click">Back</Button>
+            <Button Name="CancelButton" Margin="3" Click="CancelButton_Click">Cancel</Button>
+            <Button Name="NextButton" Margin="3" Click="NextButton_Click">Next</Button>
+        </StackPanel>
+    </Grid>
+</Window>
