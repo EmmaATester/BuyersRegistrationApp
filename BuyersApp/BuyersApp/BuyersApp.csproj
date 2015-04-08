@@ -105,6 +105,7 @@
     <Compile Include="ProductDetails.xaml.cs">
       <DependentUpon>ProductDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductDetailsViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
