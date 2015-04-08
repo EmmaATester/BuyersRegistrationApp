@@ -13,9 +13,7 @@
             <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
     </Window.Resources>
-<Window.DataContext>
-    <buyersApp:MainWindowViewModel></buyersApp:MainWindowViewModel>
-</Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

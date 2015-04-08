@@ -9,7 +9,7 @@ using BuyersApp.Annotations;
 
 namespace BuyersApp
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class FirstPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:wpfTextBoxAutoComplete="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+      xmlns:buyersApp="clr-namespace:BuyersApp"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="FirstPage">
@@ -17,6 +18,9 @@
         </Style>
 
     </Page.Resources>
+    <Page.DataContext>
+        <buyersApp:FirstPageViewModel></buyersApp:FirstPageViewModel>
+    </Page.DataContext>
     <Grid Margin="15,15,15,15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
