@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Frame Name="PageFrame" Grid.Row="0" NavigationUIVisibility="Hidden"></Frame>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
-            <Button Name="BackButton" Margin="3,3,3,0" Height="22" VerticalAlignment="Top" Click="BackButton_Click">Back</Button>
+            <Button Name="BackButton" Margin="3" Height="22" VerticalAlignment="Top" Click="BackButton_Click">Back</Button>
             <Button Name="CancelButton" Margin="3" Click="CancelButton_Click">Cancel</Button>
             <Button Name="NextButton" Margin="3" Click="NextButton_Click">Next</Button>
         </StackPanel>
