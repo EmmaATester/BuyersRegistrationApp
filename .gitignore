@@ -5,3 +5,5 @@ BuyersApp/BuyersApp/bin/
 *.dll
 *.user
 *.suo
+BuyersApp/.nuget/NuGet.exe
+*.targets
