@@ -86,7 +86,9 @@
 
 
                 <Label Content="Country" Grid.Row="6" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="6" Width="100" Grid.Column="1" Watermark="Country"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Grid.Row="6" Width="100" Grid.Column="1" Watermark="Country"
+                                       Text="{Binding SelectedCountry, UpdateSourceTrigger=PropertyChanged}" 
+        wpfTextBoxAutoComplete:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding Countries}"></xctk:WatermarkTextBox>
             </Grid>
             <Grid>
 
@@ -113,13 +115,8 @@
                 <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.Column="1" Watermark="Phone"></xctk:WatermarkTextBox>
 
                 <Label Content="Mobile" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"/>
-                <!--<xctk:WatermarkTextBox Grid.Row="3" Margin="10, 0, 0, 0" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>-->
-                <TextBox Width="250"
-        HorizontalAlignment="Center"
-        Text="{Binding SelectedCountry, UpdateSourceTrigger=PropertyChanged}" 
-        wpfTextBoxAutoComplete:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding Countries}" 
-                         Grid.Row="3" Grid.Column="1"
-    />
+                <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>
+                
             </Grid>
         </StackPanel>
     </Grid>
