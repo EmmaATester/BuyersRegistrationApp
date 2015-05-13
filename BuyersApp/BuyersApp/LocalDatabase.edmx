@@ -1,0 +1,122 @@
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<!-- EF Runtime content -->
+<edmx:Runtime>
+<!-- SSDL content -->
+<edmx:StorageModels>
+<Schema Namespace="LocalDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LocalDatabaseModelStoreContainer">
+    <EntitySet Name="Catagories" EntityType="LocalDatabaseModel.Store.Catagories" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="LocalDatabaseModel.Store.Products" store:Type="Tables" />
+    <AssociationSet Name="FK_Cat_Prod" Association="LocalDatabaseModel.Store.FK_Cat_Prod">
+      <End Role="Catagories" EntitySet="Catagories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Catagories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Catagory" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="RRP" Type="money" />
+    <Property Name="CatagoryID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Cat_Prod">
+    <End Role="Catagories" Type="LocalDatabaseModel.Store.Catagories" Multiplicity="0..1" />
+    <End Role="Products" Type="LocalDatabaseModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catagories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CatagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
+</edmx:StorageModels>
+<!-- CSDL content -->
+<edmx:ConceptualModels>
+<Schema Namespace="LocalDatabaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LocalDatabaseEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Catagories" EntityType="LocalDatabaseModel.Catagories" />
+    <EntitySet Name="Products" EntityType="LocalDatabaseModel.Products" />
+    <AssociationSet Name="FK_Cat_Prod" Association="LocalDatabaseModel.FK_Cat_Prod">
+      <End Role="Catagories" EntitySet="Catagories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Catagories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Catagory" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="LocalDatabaseModel.FK_Cat_Prod" FromRole="Catagories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="RRP" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CatagoryID" Type="Int32" />
+    <NavigationProperty Name="Catagories" Relationship="LocalDatabaseModel.FK_Cat_Prod" FromRole="Products" ToRole="Catagories" />
+  </EntityType>
+  <Association Name="FK_Cat_Prod">
+    <End Role="Catagories" Type="LocalDatabaseModel.Catagories" Multiplicity="0..1" />
+    <End Role="Products" Type="LocalDatabaseModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catagories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CatagoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
+</edmx:ConceptualModels>
+<!-- C-S mapping content -->
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocalDatabaseModelStoreContainer" CdmEntityContainer="LocalDatabaseEntities">
+    <EntitySetMapping Name="Catagories">
+      <EntityTypeMapping TypeName="LocalDatabaseModel.Catagories">
+        <MappingFragment StoreEntitySet="Catagories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Catagory" ColumnName="Catagory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="LocalDatabaseModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RRP" ColumnName="RRP" />
+          <ScalarProperty Name="CatagoryID" ColumnName="CatagoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="False" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
+<edmx:Diagrams />
+</edmx:Designer></edmx:Edmx>

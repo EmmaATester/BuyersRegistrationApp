@@ -4,7 +4,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:wpfTextBoxAutoComplete="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
         xmlns:buyersApp="clr-namespace:BuyersApp"
-        Title="Buyers's Registration form" Height="600" Width="525">
+        Title="Buyers's Registration form" Height="600" Width="586.194">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Margin" Value="3" />

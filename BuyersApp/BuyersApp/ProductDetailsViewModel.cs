@@ -1,51 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using BuyersApp.Annotations;
 
 namespace BuyersApp
 {
-    class ProductDetailsViewModel : INotifyPropertyChanged
+    class ProductDetailsViewModel : ViewModelEntity
     {
-        private DateTime _selectedDate;
+        public IEnumerable<Catagories> Categories { get { return LocalDatabaseInteraction.GetCatagories(); } }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public DateTime selectedDate
+        private Catagories _selectedCategory;
+        public Catagories SelectedCategory 
         {
-            get { return _selectedDate; }
-            set { _selectedDate = value; }
+            get { return _selectedCategory; }
+            set
+            {
+                _selectedCategory = value;
+                Products = LocalDatabaseInteraction.GetProductsByCatagoryId(SelectedCategory.Id);
+                NotifyPropertyChanged("SelectedCategory");
+            }
         }
 
-       // int     YearComboBox.SelectedValue = date.Value.Year;
-   //    int     DayComboBox.SelectedValue = date.Value.Day;
-      // int     MonthComboBox.SelectedValue = date.Value.Month;
+        private List<Products> _Products;
+        public List<Products> Products
+        {
+            get { return _Products; }
+            set
+            {
+                _Products = value;
+                NotifyPropertyChanged("Products");
+            }
+        }
 
-        public IEnumerable<string> Categories { get { return new[] { "Music", "book", "China" }; } }
-        public string SelectedCategory { get; set; }
+        private Products _selectedProduct;
+        public Products SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set
+            {
+                _selectedProduct = value;
+                NotifyPropertyChanged("SelectedProduct");
+            }
+        }
+
+        private DateTime _selectedDate;
+        public DateTime SelectedDate
+        {
+            get { return _selectedDate; }
+            set
+            {
+                _selectedDate = value;
+                NotifyPropertyChanged("SelectedDate");
+            }
+        }
+
+        // int     YearComboBox.SelectedValue = date.Value.Year;
+        // int     DayComboBox.SelectedValue = date.Value.Day;
+        // int     MonthComboBox.SelectedValue = date.Value.Month;
 
         public IEnumerable<int> Years
         {
             get { return Enumerable.Range(1930, 81).ToList(); }
         }
-    
-    
-   
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
-
     }
 }
