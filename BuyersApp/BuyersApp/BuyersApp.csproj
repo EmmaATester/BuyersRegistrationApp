@@ -93,6 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModelEntity.cs" />
+    <Compile Include="YahooFinanceCurrencyConverter.cs" />
     <Page Include="FirstPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +169,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LocalDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="CountriesAndCurrencyCodes.csv" />
     <None Include="LocalDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LocalDatabase.Context.cs</LastGenOutput>
