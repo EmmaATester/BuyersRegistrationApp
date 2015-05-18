@@ -169,7 +169,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LocalDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CountriesAndCurrencyCodes.csv" />
+    <None Include="CountriesAndCurrencyCodes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="LocalDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LocalDatabase.Context.cs</LastGenOutput>

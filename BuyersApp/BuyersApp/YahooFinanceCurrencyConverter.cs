@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace BuyersApp
@@ -29,7 +27,7 @@ namespace BuyersApp
         /// </summary>
         public YahooFinanceCurrencyConverter()
         {
-            CurrencyCodeDictionary = GetCurrencyCodeDictionaryFromFile(cCurrencyCodeDictionaryFileName);
+            CurrencyCodeDictionary = GetCurrencyCodeDictionary();
         }
 
         /// <summary>
@@ -44,6 +42,16 @@ namespace BuyersApp
         {
             float conversionRate = GetConversion(fromCurrency, toCurrency);
             return valueToConvert * conversionRate;
+        }
+
+        /// <summary>
+        /// Gets the Dictionary keyed by 3 digit currency codes, with country names as values
+        /// From the default file: CountriesAndCurrencyCodes.csv
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetCurrencyCodeDictionary()
+        {
+            return GetCurrencyCodeDictionaryFromFile(cCurrencyCodeDictionaryFileName); 
         }
 
         /// <summary>
@@ -136,7 +144,7 @@ namespace BuyersApp
         /// </summary>
         /// <param name="currencyCodeDictionaryFileName">filename of csv to use for dictionary</param>
         /// <returns>dictionary keyed by three digit string of country code, then value country name</returns>
-        private Dictionary<string, string> GetCurrencyCodeDictionaryFromFile(string currencyCodeDictionaryFileName)
+        private static Dictionary<string, string> GetCurrencyCodeDictionaryFromFile(string currencyCodeDictionaryFileName)
         {
             if (!File.Exists(currencyCodeDictionaryFileName))
                 throw new FileNotFoundException("Cannot find file: " + currencyCodeDictionaryFileName);
