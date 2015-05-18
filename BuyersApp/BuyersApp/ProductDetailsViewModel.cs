@@ -99,7 +99,15 @@ namespace BuyersApp
 
         public IEnumerable<int> Years
         {
-            get { return Enumerable.Range(1930, 81).ToList(); }
+            get { return Enumerable.Range(1930, 100).ToList(); }
+        }
+        public IEnumerable<int> Months
+        {
+            get { return Enumerable.Range(1, 12).ToList(); }
+        }
+        public IEnumerable<int> Days
+        {
+            get { return Enumerable.Range(1, 31).ToList(); }
         }
 
         private void CalculatePricePaidVsRelativeRetailPrice()
