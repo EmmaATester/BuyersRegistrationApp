@@ -5,22 +5,33 @@ using BuyersApp.Properties;
 
 namespace BuyersApp
 {
-    class FirstPageViewModel : ViewModelEntity
+  public class FirstPageViewModel : ViewModelEntity
     {
-        private string[] m_Countries;
-
-        public IEnumerable<string> Countries { get {return m_Countries;} }
-        public string SelectedCountry { get; set; }
-
+        private string[] mCountries;
+        public IEnumerable<string> Countries { get {return mCountries;} }
+    
         public FirstPageViewModel()
         {
             GetCountries();
+            SummaryInView = new Summary();
+        }
+
+        private string selectedCountry;
+        public string SelectedCountry
+        {
+          get { return selectedCountry; }
+          set
+          {
+            selectedCountry = value;
+            NotifyPropertyChanged("SelectedCountry");
+            SummaryInView.Country = selectedCountry;
+          }
         }
 
         private void GetCountries()
         {
             string fileContent = Resources.Countries;
-            m_Countries = fileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            mCountries = fileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToArray();
         }
     }
 }

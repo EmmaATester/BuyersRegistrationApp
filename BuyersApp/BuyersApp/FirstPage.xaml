@@ -19,7 +19,7 @@
 
     </Page.Resources>
     <Page.DataContext>
-        <buyersApp:FirstPageViewModel></buyersApp:FirstPageViewModel>
+        <buyersApp:FirstPageViewModel />
     </Page.DataContext>
     <Grid Margin="15,15,15,15">
         <Grid.ColumnDefinitions>
@@ -118,6 +118,7 @@
                 <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>
                 
             </Grid>
-        </StackPanel>
+        <TextBlock Name="SummaryDataBound" Visibility="Hidden" DataContext="{Binding Path=SummaryInView}"></TextBlock>
+      </StackPanel>
     </Grid>
 </Page>

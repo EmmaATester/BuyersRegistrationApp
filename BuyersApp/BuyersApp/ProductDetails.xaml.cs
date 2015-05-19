@@ -13,6 +13,10 @@ namespace BuyersApp
     /// </summary>
     public partial class ProductDetails
     {
+        public override string ToString()
+        {
+          return "ProductDetails";
+        }
         public ProductDetails()
         {
             InitializeComponent();

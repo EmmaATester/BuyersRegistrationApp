@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace BuyersApp
 {
-    internal class ViewModelEntity : INotifyPropertyChanged
+  public class ViewModelEntity : INotifyPropertyChanged
     {
         /// <summary>
         /// The property changed event.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private Summary mSummaryInView;
+        public Summary SummaryInView
+        {
+          get { return mSummaryInView; }
+          set
+          {
+            mSummaryInView = value;
+            NotifyPropertyChanged("Summary");
+          }
+        }
 
         /// <summary>
         /// Raises the property changed event.

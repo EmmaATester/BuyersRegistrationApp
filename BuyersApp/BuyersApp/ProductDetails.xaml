@@ -71,26 +71,27 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Label HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="0">
                     <TextBlock TextDecorations="Underline"><Run Text="Year"/></TextBlock>
                 </Label>
-                <ComboBox ItemsSource ="{Binding Path=Years}" Name="YearComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="100" Grid.Row="0" Grid.Column="1"/>
+                <ComboBox ItemsSource ="{Binding Path=Years}" Name="YearComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="100" Grid.Row="0" Grid.Column="1" SelectedValue="{Binding SelectedYear}"/>
                 
                 <Label Content="Month" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0"/>
-                <ComboBox Name="MonthComboBox" ItemsSource ="{Binding Path=Months}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" MinWidth="100" Grid.Column="1"/>
+                <ComboBox Name="MonthComboBox" ItemsSource ="{Binding Path=Months}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" MinWidth="100" Grid.Column="1" SelectedValue="{Binding SelectedMonth}"/>
 
                 <Label Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <ComboBox Name="DayComboBox" ItemsSource ="{Binding Path=Days}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" MinWidth="100" Grid.Column="1"/>
+                <ComboBox Name="DayComboBox" ItemsSource ="{Binding Path=Days}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" MinWidth="100" Grid.Column="1" SelectedValue="{Binding SelectedDay}"/>
             
                 <DatePicker Grid.Row="3" Grid.Column="1" SelectedDateChanged="DatePicker_OnSelectedDateChanged"/>
             </Grid>
         </StackPanel>
-    </Grid>
+    <TextBlock Grid.Row="0" Visibility="Hidden" Name="SummaryDataBound" DataContext="{Binding Path=SummaryInView}"></TextBlock>
+  </Grid>
 </Page>
