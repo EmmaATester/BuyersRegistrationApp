@@ -11,6 +11,9 @@
     public int SelectedYear { get; set; }
     public int SelectedMonth { get; set; }
     public int SelectedDay { get; set; }
+    public string Title { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
     public void Copy(Summary summary)
     {
@@ -23,6 +26,11 @@
       SelectedYear = summary.SelectedYear;
       SelectedMonth = summary.SelectedMonth;
       SelectedDay = summary.SelectedDay;
+      Title = summary.Title;
+      FirstName = summary.FirstName;
+      LastName = summary.LastName;
+      
+
     }
   }
 }

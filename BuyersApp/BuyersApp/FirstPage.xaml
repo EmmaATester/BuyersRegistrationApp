@@ -57,7 +57,7 @@
                     <TextBlock TextDecorations="Underline">Personal details</TextBlock>
                 </Label>
 
-                <ComboBox Grid.Row="1" Width="50" Grid.Column="0">
+                <ComboBox Name="SelectedTitle" SelectedValue="{Binding Title}" Grid.Row="1" Width="50" Grid.Column="0">
                     <ComboBoxItem IsSelected="True">Mr.</ComboBoxItem>
                     <ComboBoxItem>Miss</ComboBoxItem>
                     <ComboBoxItem>Mrs</ComboBoxItem>
@@ -67,10 +67,11 @@
                     <ComboBoxItem>Lord</ComboBoxItem>
                 </ComboBox>
                 <Label Content="First name" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
-                <xctk:WatermarkTextBox Grid.Row="1" Width="100" Grid.Column="2" Watermark="Enter First Name" />
+                <xctk:WatermarkTextBox Name="firstName" Text="{Binding SelectedFirstName}" Grid.Row="1" Width="100" Grid.Column="2" Watermark="Enter First Name" />
 
                 <Label Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame"></xctk:WatermarkTextBox>
+                <xctk:WatermarkTextBox Name="lastName" Text="{Binding SelectedLastName}" Grid.Row="2" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame">
+                </xctk:WatermarkTextBox>
 
                 <Label Content="Address 1" Grid.Row="3" Grid.Column="0"/>
                 <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Address"></xctk:WatermarkTextBox>
