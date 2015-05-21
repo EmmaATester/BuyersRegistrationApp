@@ -58,8 +58,6 @@ namespace BuyersApp
 
             if (fromPage.ToString() != "SummaryDetails")
             {
-                SummaryDetails summaryDetails = (SummaryDetails)toPage;
-                summaryDetails.SaveButtonLabel.Content = "";
                 return;
             }
 
