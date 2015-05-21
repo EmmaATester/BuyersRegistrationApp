@@ -39,6 +39,8 @@ namespace BuyersApp
             if (toPage.ToString() != "SummaryDetails")
                 return;
 
+            SummaryDetails summaryDetails = (SummaryDetails)toPage;
+            summaryDetails.SaveButtonLabel.Content = "";
             NextButton.Content = "Close";
 
             CancelButton.Width = 1;
@@ -55,8 +57,12 @@ namespace BuyersApp
             PassSummary(fromPage,toPage);
 
             if (fromPage.ToString() != "SummaryDetails")
+            {
+                SummaryDetails summaryDetails = (SummaryDetails)toPage;
+                summaryDetails.SaveButtonLabel.Content = "";
                 return;
-            
+            }
+
             NextButton.Content = "Next";
             
             CancelButton.Width = 75;

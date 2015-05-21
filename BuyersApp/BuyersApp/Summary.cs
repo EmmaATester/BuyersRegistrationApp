@@ -29,7 +29,7 @@ namespace BuyersApp
     public string Name { get { return GetName(); } }
     public string PriceWithCurrency { get { return GetPriceWithCurrency(); } }
     public string DatePurchased { get { return GetDatePurchased(); } }
-      
+    
     public void Copy(Summary summary)
     {
       ComparedToRelativeRetailPrice = summary.ComparedToRelativeRetailPrice;

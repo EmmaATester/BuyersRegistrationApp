@@ -69,6 +69,7 @@
       <Label Content="{Binding Path=DatePurchased}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="28" Margin="0" />
     </Grid>
     <Button Name="SaveButton" Width="75" Margin="3" Click="SaveButtonClick">Save</Button>
-  </StackPanel>
+        <Label Name="SaveButtonLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="28" Margin="0" />
+    </StackPanel>
 </Page>
   
