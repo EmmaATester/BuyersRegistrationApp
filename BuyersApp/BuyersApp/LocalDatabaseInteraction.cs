@@ -5,7 +5,7 @@ namespace BuyersApp
 {
     internal static class LocalDatabaseInteraction
     {
-        internal static IEnumerable<Catagories> GetCatagories()
+        internal static IEnumerable<Catagories> GetCategories()
         {
             using (LocalDatabaseEntities database = new LocalDatabaseEntities())
             {
@@ -13,7 +13,7 @@ namespace BuyersApp
             }
         }
 
-        internal static List<Products> GetProductsByCatagoryId(int catagoryId)
+        internal static List<Products> GetProductsByCategoryId(int catagoryId)
         {
             using (LocalDatabaseEntities database = new LocalDatabaseEntities())
             { 

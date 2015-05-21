@@ -15,6 +15,60 @@
     <Page.DataContext>
     <buyersApp:SummaryDetailsViewModel></buyersApp:SummaryDetailsViewModel>
     </Page.DataContext>
-
-    <TextBlock Visibility="Hidden" Name="SummaryDataBound" DataContext="{Binding Path=SummaryInView}"></TextBlock>
+    <StackPanel DataContext="{Binding Path=SummaryInView}" x:Name="SummaryDetailsInfo">
+      <Label HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="440">
+        <TextBlock TextDecorations="Underline">Summary Details</TextBlock>
+      </Label>
+      <Label HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="440">
+        <TextBlock FontWeight="Bold">Contact Details</TextBlock>
+      </Label>
+      <Grid  HorizontalAlignment="Stretch" Width="Auto" >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="30"/>
+          <RowDefinition Height="30"/>
+          <RowDefinition Height="30"/>
+          <RowDefinition Height="30"/>
+          <RowDefinition Height="30"/>
+      </Grid.RowDefinitions>
+        <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="28" Margin="0" />
+        <Label Content="{Binding Path=Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Height="28" Margin="0" />
+        <Label Content="Address:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Height="28" Margin="0" />
+        <Label Content="{Binding Path=Address}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Height="28" Margin="0" />
+        <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Height="28" Margin="0" />
+        <Label Content="{Binding Path=Email}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Height="28" Margin="0" />
+        <Label Content="Phone:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Height="28" Margin="0" />
+        <Label Content="{Binding Path=Phone}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="28" Margin="0" />
+        <Label Content="Mobile:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Height="28" Margin="0" />
+        <Label Content="{Binding Path=Mobile}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Height="28" Margin="0" />
+    </Grid>
+    <Label HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="440">
+      <TextBlock FontWeight="Bold">Product Details</TextBlock>
+    </Label>
+    <Grid  HorizontalAlignment="Stretch" Width="Auto" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+      </Grid.RowDefinitions>
+      <Label Content="Product:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="28" Margin="0" />
+      <Label Content="{Binding Path=Product}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Height="28" Margin="0" />
+      <Label Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Height="28" Margin="0" />
+      <Label Content="{Binding Path=Catagory}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Height="28" Margin="0" />
+      <Label Content="Price:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Height="28" Margin="0" />
+      <Label Content="{Binding Path=PriceWithCurrency}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Height="28" Margin="0" />
+      <Label Content="DatePurchased:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Height="28" Margin="0" />
+      <Label Content="{Binding Path=DatePurchased}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="28" Margin="0" />
+    </Grid>
+    <Button Name="SaveButton" Width="75" Margin="3" Click="SaveButtonClick">Save</Button>
+  </StackPanel>
 </Page>
+  

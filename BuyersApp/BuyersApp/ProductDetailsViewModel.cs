@@ -8,19 +8,19 @@ namespace BuyersApp
     {
         private const string cDefaultCurrency = "United States Dollar";
         private const string cDefaultCurrencyCode = "USD";
-        public IEnumerable<Catagories> Categories { get { return LocalDatabaseInteraction.GetCatagories(); } }
+        public IEnumerable<Catagories> Categories { get { return LocalDatabaseInteraction.GetCategories(); } }
         public List<string> Currencies { get { return YahooFinanceCurrencyConverter.GetCurrencyCodeDictionary().Values.ToList(); } }
 
-        private Catagories _selectedCategory;
+        private Catagories mSelectedCategory;
         public Catagories SelectedCategory 
         {
-            get { return _selectedCategory; }
+            get { return mSelectedCategory; }
             set
             {
-                _selectedCategory = value;
-                Products = LocalDatabaseInteraction.GetProductsByCatagoryId(SelectedCategory.Id);
+                mSelectedCategory = value;
+                Products = LocalDatabaseInteraction.GetProductsByCategoryId(SelectedCategory.Id);
                 NotifyPropertyChanged("SelectedCategory");
-                SummaryInView.Catagory = _selectedCategory; 
+                SummaryInView.Catagory = mSelectedCategory; 
             }
         }
 
@@ -169,11 +169,20 @@ namespace BuyersApp
             }
 
             string threeDidigtCodeForSelectedCurrency = GetThreeDidigtCodeForSelectedCurrency(SelectedCurrency);
-            var pricePaidAsDefaultCurrency = cDefaultCurrency != SelectedCurrency ? ConvertPricePaidToDefaultCurrency(cDefaultCurrencyCode, threeDidigtCodeForSelectedCurrency, price) : price;
-
-            ComparedToRRP = pricePaidAsDefaultCurrency > SelectedProduct.RRP
-              ? String.Format("You paid over the RRP by {0} {1}", pricePaidAsDefaultCurrency - SelectedProduct.RRP, cDefaultCurrencyCode)
-              : String.Format("You paid under the RRP by {0} {1}", SelectedProduct.RRP - pricePaidAsDefaultCurrency, cDefaultCurrencyCode);
+            try
+            {
+                var pricePaidAsDefaultCurrency = cDefaultCurrency != SelectedCurrency
+                  ? ConvertPricePaidToDefaultCurrency(cDefaultCurrencyCode, threeDidigtCodeForSelectedCurrency, price)
+                  : price;
+                ComparedToRRP = pricePaidAsDefaultCurrency > SelectedProduct.RRP
+                  ? String.Format("You paid over the RRP by {0} {1}", pricePaidAsDefaultCurrency - SelectedProduct.RRP, cDefaultCurrencyCode)
+                  : String.Format("You paid under the RRP by {0} {1}", SelectedProduct.RRP - pricePaidAsDefaultCurrency, cDefaultCurrencyCode);
+            }
+            catch (Exception)
+            {
+              ComparedToRRP = "Failed to contact Yahoo Finance";
+            }
+            
           }
 
         private string GetThreeDidigtCodeForSelectedCurrency(string selectedCurrency)

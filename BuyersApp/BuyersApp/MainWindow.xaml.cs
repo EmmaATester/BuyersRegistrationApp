@@ -79,7 +79,7 @@ namespace BuyersApp
               break;
               case "SummaryDetails":
               SummaryDetails summaryDetails = (SummaryDetails)fromPage;
-              summary = (Summary)summaryDetails.SummaryDataBound.DataContext;
+              summary = (Summary)summaryDetails.SummaryDetailsInfo.DataContext;
               break;
               default:
               throw  new Exception("Gone wrong in the page horrible logic");
@@ -91,19 +91,22 @@ namespace BuyersApp
               FirstPage firstPage = (FirstPage)toPage;
               Summary firstPageSummary = (Summary)firstPage.SummaryDataBound.DataContext;
               firstPageSummary.Copy(summary);
+              firstPage.SummaryDataBound.DataContext = null; 
               firstPage.SummaryDataBound.DataContext = firstPageSummary;
               break;
             case "ProductDetails":
               ProductDetails productDetails = (ProductDetails)toPage;
               Summary productDetailsSummary = (Summary)productDetails.SummaryDataBound.DataContext;
               productDetailsSummary.Copy(summary);
+              productDetails.SummaryDataBound.DataContext = null; 
               productDetails.SummaryDataBound.DataContext = productDetailsSummary;
               break;
             case "SummaryDetails":
               SummaryDetails summaryDetails = (SummaryDetails)toPage;
-              Summary summaryDetailsSummary = (Summary)summaryDetails.SummaryDataBound.DataContext;
+              Summary summaryDetailsSummary = (Summary)summaryDetails.SummaryDetailsInfo.DataContext;
               summaryDetailsSummary.Copy(summary);
-              summaryDetails.SummaryDataBound.DataContext = summaryDetailsSummary;
+              summaryDetails.SummaryDetailsInfo.DataContext = null;
+              summaryDetails.SummaryDetailsInfo.DataContext = summaryDetailsSummary;
               break;
             default:
               throw new Exception("Gone wrong in the page horrible logic");

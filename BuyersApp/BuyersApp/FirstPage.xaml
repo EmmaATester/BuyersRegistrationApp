@@ -9,116 +9,109 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="FirstPage">
-    <Page.Resources>
-        <Style TargetType="{x:Type xctk:WatermarkTextBox}">
-            <Setter Property="Margin" Value="3" />
-        </Style>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Margin" Value="3" />
-        </Style>
+  <Page.Resources>
+    <Style TargetType="{x:Type xctk:WatermarkTextBox}">
+      <Setter Property="Margin" Value="3" />
+    </Style>
+    <Style TargetType="{x:Type TextBox}">
+      <Setter Property="Margin" Value="3" />
+    </Style>
 
-    </Page.Resources>
-    <Page.DataContext>
-        <buyersApp:FirstPageViewModel />
-    </Page.DataContext>
-    <Grid Margin="15,15,15,15">
+  </Page.Resources>
+  <Page.DataContext>
+    <buyersApp:FirstPageViewModel />
+  </Page.DataContext>
+  <Grid Margin="15,15,15,15">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
+      <TextBlock TextDecorations="Underline">Register your new product here</TextBlock>
+    </Label>
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Stretch" Orientation="Vertical" Grid.Row="1">
+
+      <Grid HorizontalAlignment="Stretch" Width="505" Name="PersonalDetailsGrid">
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
-            <TextBlock TextDecorations="Underline">Register your new product here</TextBlock>
+          <TextBlock TextDecorations="Underline">Personal details</TextBlock>
         </Label>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Stretch" Orientation="Vertical" Grid.Row="1">
 
-            <Grid HorizontalAlignment="Stretch" Width="505" Name="PersonalDetailsGrid">
+        <ComboBox Name="SelectedTitle" ItemsSource="{Binding Titles}" SelectedItem="{Binding Title}" Grid.Row="1" Grid.Column="0" Height="25" Margin="10,0,30,0" VerticalAlignment="Bottom" />
+        <Label Content="First name" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+        <xctk:WatermarkTextBox Name="FirstName" Text="{Binding SelectedFirstName}" Grid.Row="1" Width="100" Grid.Column="2" Watermark="Enter First Name" />
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
-                    <TextBlock TextDecorations="Underline">Personal details</TextBlock>
-                </Label>
+        <Label Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Name="LastName" Text="{Binding SelectedLastName}" Grid.Row="2" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame">
+        </xctk:WatermarkTextBox>
 
-                <ComboBox Grid.Row="1" Width="50" Grid.Column="0">
-                    <ComboBoxItem IsSelected="True">Mr.</ComboBoxItem>
-                    <ComboBoxItem>Miss</ComboBoxItem>
-                    <ComboBoxItem>Mrs</ComboBoxItem>
-                    <ComboBoxItem>Ms.</ComboBoxItem>
-                    <ComboBoxItem>Dr.</ComboBoxItem>
-                    <ComboBoxItem>Sir</ComboBoxItem>
-                    <ComboBoxItem>Lord</ComboBoxItem>
-                </ComboBox>
-                <Label Content="First name" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
-                <xctk:WatermarkTextBox Grid.Row="1" Width="100" Grid.Column="2" Watermark="Enter First Name" />
+        <Label Content="Address 1" Grid.Row="3" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Name="Address1" Text="{Binding Address1}" Grid.Row="3" Width="100" Grid.Column="1" Watermark="Address"></xctk:WatermarkTextBox>
 
-                <Label Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Column="1" Watermark="Surame"></xctk:WatermarkTextBox>
+        <Label Content="Town" Grid.Row="4" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Name="Town" Text="{Binding Town}" Grid.Row="4" Width="100" Grid.Column="1" Watermark="Town"></xctk:WatermarkTextBox>
 
-                <Label Content="Address 1" Grid.Row="3" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Address"></xctk:WatermarkTextBox>
-
-                <Label Content="Town" Grid.Row="4" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="4" Width="100" Grid.Column="1" Watermark="Town"></xctk:WatermarkTextBox>
-
-                <xctk:WatermarkTextBox Grid.Row="5" Width="100" Grid.Column="0" Watermark="County"></xctk:WatermarkTextBox>
-                <Label Content="County" Grid.Row="5" Grid.Column="1"/>
-                <Label Content="Post code" Grid.Row="5" Grid.Column="2"/>
-                <TextBox Grid.Row="5" Width="50" Grid.Column="3" HorizontalAlignment="Right"></TextBox>
-                <TextBox Grid.Row="5" Width="50" Grid.Column="4"></TextBox>
+        <xctk:WatermarkTextBox Name="County" Text="{Binding County}" Grid.Row="5" Width="100" Grid.Column="0" Watermark="County"></xctk:WatermarkTextBox>
+        <Label Content="County" Grid.Row="5" Grid.Column="1"/>
+        <Label Content="Post code" Grid.Row="5" Grid.Column="2"/>
+        <TextBox Grid.Row="5" Width="50" Grid.Column="3" HorizontalAlignment="Right"  Name="PostCodePart1" Text="{Binding PostCodePart1}" ></TextBox>
+        <TextBox Grid.Row="5" Width="50" Grid.Column="4" Name="PostCodePart2" Text="{Binding PostCodePart2}"></TextBox>
 
 
-                <Label Content="Country" Grid.Row="6" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="6" Width="100" Grid.Column="1" Watermark="Country"
+        <Label Content="Country" Grid.Row="6" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Grid.Row="6" Width="100" Grid.Column="1" Watermark="Country"
                                        Text="{Binding SelectedCountry, UpdateSourceTrigger=PropertyChanged}" 
         wpfTextBoxAutoComplete:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding Countries}"></xctk:WatermarkTextBox>
-            </Grid>
-            <Grid>
+      </Grid>
+      <Grid>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
-                    <TextBlock TextDecorations="Underline">Contact details</TextBlock>
-                </Label>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+          <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
+          <TextBlock TextDecorations="Underline">Contact details</TextBlock>
+        </Label>
 
-                <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="1" Width="100" Grid.Column="1" Watermark="Email"></xctk:WatermarkTextBox>
+        <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Grid.Row="1" Text="{Binding Email}" Width="100" Grid.Column="1" Watermark="Email"></xctk:WatermarkTextBox>
 
-                <Label Content="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="2" Width="100" Grid.Column="1" Watermark="Phone"></xctk:WatermarkTextBox>
+        <Label Content="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Grid.Row="2" Text="{Binding Phone}" Width="100" Grid.Column="1" Watermark="Phone"></xctk:WatermarkTextBox>
 
-                <Label Content="Mobile" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"/>
-                <xctk:WatermarkTextBox Grid.Row="3" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>
-                
-            </Grid>
-        <TextBlock Name="SummaryDataBound" Visibility="Hidden" DataContext="{Binding Path=SummaryInView}"></TextBlock>
-      </StackPanel>
-    </Grid>
+        <Label Content="Mobile" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0"/>
+        <xctk:WatermarkTextBox Grid.Row="3" Text="{Binding Mobile}" Width="100" Grid.Column="1" Watermark="Mobile"></xctk:WatermarkTextBox>
+
+      </Grid>
+      <TextBlock Name="SummaryDataBound" Visibility="Hidden" DataContext="{Binding Path=SummaryInView}"></TextBlock>
+    </StackPanel>
+  </Grid>
 </Page>

@@ -45,7 +45,7 @@
                 <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="28">
                     <TextBlock TextDecorations="Overline"><Run Text="What did you buy?"/></TextBlock>
                 </Label>
-                <Label Content="Catagory Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="28" Margin="0" />
+                <Label Content="Category Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="28" Margin="0" />
                 <ComboBox  Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=Categories}" SelectedValue="{Binding Path=SelectedCategory}" Height="28" />
 
                 <Label Content="Product Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0" Height="28" Margin="0" />
